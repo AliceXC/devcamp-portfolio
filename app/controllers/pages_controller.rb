@@ -8,6 +8,7 @@ class PagesController < ApplicationController
       when called Blog.all, it gonna get all instances of BLog and store them in posts
 =end
     @posts = Blog.all
+    @skills = Skill.all
   end
 
   def about
