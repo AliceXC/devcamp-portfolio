@@ -60,6 +60,11 @@ class BlogsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
+      # by adding "friendly", it is overriding the default behavier 
+      # before, looking into params for the specific id
+      # now friendly does work for us, it is stilling for id, 
+      # but will also check into slugs, and map to the id, then perform search
+      # then return blog
       @blog = Blog.friendly.find(params[:id])
     end
 
