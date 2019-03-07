@@ -39,8 +39,21 @@ class PortfoliosController < ApplicationController
     end
 
     def show
-        #Portfolio performs a database query
+        #Portfolio performs the lookup database query
+        @portfolio_item = Portfolio.find(params[:id])
+    end
+
+    def destroy
+        # performs the lookup
         @portfolio_item = Portfolio.find(params[:id])
 
+        # same action as in console
+        # destroy/delete the record
+        @portfolio_item.destroy 
+
+        # redirect
+        respond_to do |format|
+            format.html { redirect_to portfolios_url, notice: 'Record was removed!'}
+        end
     end
 end
