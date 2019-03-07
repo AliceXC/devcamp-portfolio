@@ -36,6 +36,11 @@ class PortfoliosController < ApplicationController
             format.html { render :edit }
           end
         end
-      end
+    end
 
+    def show
+        #Portfolio performs a database query
+        @portfolio_item = Portfolio.find(params[:id])
+
+    end
 end
