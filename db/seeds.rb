@@ -5,3 +5,37 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# never run in production (development mode) because it erase existing data and setup new database
+# based on seeds.rb
+# only run at beginning
+10.times do |blog| #blog is just an iterator : 0,1,2,....9
+    Blog.create!(
+        title: "post #{blog}",
+        body: "some random blog text"
+    )
+end
+
+# print a msg to console
+puts "10 blog posts created!"
+
+5.times do |skill|
+    Skill.create!(
+        title: "Rails #{skill}",
+        percent_utilized: 15
+    )
+end
+puts "5 skills created!"
+
+# https://place-hold.it/ to generate image & url
+# also notice that cannot use '' instead of "" 
+9.times do |portfolio_item|
+    Portfolio.create!(
+        title: "portfolio #{portfolio_item}",
+        subtitle: "port sub title",
+        body: "port text blablabla",
+        main_image: "http://placehold.it/600x400",
+        thumb_image: "http://placehold.it/350x200"
+    )
+end
+puts "9 portfolio items created!"

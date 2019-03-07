@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  # the private blog instance variables would be available to those methods.
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
 
   # GET /blogs
   # GET /blogs.json
@@ -57,14 +58,35 @@ class BlogsController < ApplicationController
     end
   end
 
+  def toggle_status
+    # byebug is a gem for debugging
+    # it stops the system, and ask system about itself
+    # byebug
+
+    if @blog.draft?
+      @blog.published! 
+    elsif @blog.published?
+      @blog.draft!
+    end
+
+    redirect_to blogs_url, notice: 'Post status has been updated!'
+  end
+
+  # blog instance variable
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
-      @blog = Blog.find(params[:id])
+      # by adding "friendly", it is overriding the default behavier 
+      # before, looking into params for the specific id
+      # now friendly does work for us, it is stilling for id, 
+      # but will also check into slugs, and map to the id, then perform search
+      # then return blog
+      @blog = Blog.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
       params.require(:blog).permit(:title, :body)
     end
+
 end
