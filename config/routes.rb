@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   get 'about-me', to: 'pages#about'
   get 'contact', to: 'pages#contact'
 
-  resources :blogs
+  resources :blogs do
+    member do
+      get :toggle_status # not post but get 
+    end
+  end
   # every time make new change to routes file, we have to restart the server
   # setting is root path, im setting the home page
   root to: 'pages#home' 
