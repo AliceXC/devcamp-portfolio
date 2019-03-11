@@ -1,5 +1,11 @@
 <h1>Hi, <%= current_user.first_name if current_user%> </h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<!-- 
+    current_user is what the system gives us, 
+    and devise wires this up through the user model
+    current_user checks if user logges in and if so, it gives an direct connection
+    to that user's db record
+-->
 
 <!-- everything inside is going to be rendered in the page
     and it s considered as ruby code -->
