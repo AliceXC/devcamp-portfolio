@@ -5,6 +5,15 @@ class PortfoliosController < ApplicationController
         #and make it available for the view
     end
 
+    def angular
+        # @angular_portfolio_items is the instance variable that we are going to use in views
+        @angular_portfolio_items = Portfolio.angular
+    end
+
+    def ruby_on_rails
+        @ruby_on_rails_portfolio_items = Portfolio.ruby_on_rails_portfolio_items
+    end
+
     def new
         @portfolio_item = Portfolio.new
     end
