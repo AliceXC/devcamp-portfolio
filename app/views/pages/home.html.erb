@@ -1,4 +1,4 @@
-<h1>Hi, <%= current_user.first_name if current_user%> </h1>
+<h1>Hi, <%= current_user.first_name%> </h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 <!-- 
     current_user is what the system gives us, 
@@ -11,5 +11,8 @@
     and it s considered as ruby code -->
 <h1>Blog posts</h1>
 <%= @posts.inspect %>
+
 <h1>Skills</h1>
 <%= @skills.inspect %>
+
+
