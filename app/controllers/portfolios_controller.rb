@@ -1,4 +1,6 @@
 class PortfoliosController < ApplicationController
+    layout "portfolio"
+
     def index
         @portfolio_items = Portfolio.all
         #calling the model inside of the controller 
