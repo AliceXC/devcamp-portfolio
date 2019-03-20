@@ -61,3 +61,6 @@ gem 'petergate', '~> 1.6', '>= 1.6.3'
 
 # for deployment on heroku
 ruby "2.5.3"
+
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
